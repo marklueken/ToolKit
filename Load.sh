@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /opt/var
 
 #Host Discovery
-git clone https://github.com/google/grr
+git clone https://github.com/google/grr /opt/grr; 
+
+#Red Team Field Manual
+git clone https://github.com/leostat/rtfm.git /opt/rtfm/;  chmod +x /opt/rtfm/rtfm.py; /opt/rtfm/rtfm.py -u;
