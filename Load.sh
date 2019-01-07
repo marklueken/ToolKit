@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#This a load script for common tools used to set up security testing infrastructure.  Less time consuming than PTF-update all.
+#Future plan is to customize PTF for tools I use.
+
+
 # variables
 BLUE='\033[1;34m'
 YELLOW='\033[1;33m'
@@ -70,6 +74,7 @@ if [ -d /opt/discover/.git ]; then
      echo
 fi
 
+#Domain Hunter
 if [ -d /opt/domainhunter/.git ]; then
      echo -e "${BLUE}Updating Domain Hunter.${NC}"
      cd /opt/domainhunter/ ; git pull
@@ -83,6 +88,7 @@ else
      echo
 fi
 
+#Domain Password Spray
 if [ -d /opt/DomainPasswordSpray/.git ]; then
      echo -e "${BLUE}Updating DomainPasswordSpray.${NC}"
      cd /opt/DomainPasswordSpray/ ; git pull
@@ -93,20 +99,7 @@ else
      echo
 fi
 
-
-if [ -d /opt/Egress-Assess/.git ]; then
-     echo -e "${BLUE}Updating Egress-Assess.${NC}"
-     cd /opt/Egress-Assess/ ; git pull
-     echo
-else
-     echo -e "${YELLOW}Installing Egress-Assess.${NC}"
-     git clone https://github.com/ChrisTruncer/Egress-Assess.git /opt/Egress-Assess
-     /opt/Egress-Assess/setup/setup.sh
-     mv server.pem ../Egress-Assess/
-     rm impacket*
-     echo
-fi
-
+#Empire
 if [ -d /opt/Empire/.git ]; then
      echo -e "${BLUE}Updating Empire.${NC}"
      cd /opt/Empire/ ; git pull
@@ -118,22 +111,14 @@ else
      echo
 fi
 
-if [ -d /opt/EyeWitness/.git ]; then
-     echo -e "${BLUE}Updating EyeWitness.${NC}"
-     cd /opt/EyeWitness/ ; git pull
-     echo
-else
-     echo -e "${YELLOW}Installing EyeWitness.${NC}"
-     git clone https://github.com/ChrisTruncer/EyeWitness.git /opt/EyeWitness
-     /opt/EyeWitness/setup/setup.sh
-fi
-
+#libxml2
 if [ ! -f /usr/bin/xmllint ]; then
      echo -e "${YELLOW}Installing libxml2-utils.${NC}"
      apt-get install -y libxml2-utils
      echo
 fi
 
+#PowerSploit
 if [ -d /opt/PowerSploit/docs ]; then
      echo -e "${BLUE}Updating PowerSploit.${NC}"
      cd /opt/PowerSploit/ ; git pull
@@ -145,6 +130,7 @@ else
 echo
 fi
 
+#PowerUpSQL
 if [ -d /opt/PowerUpSQL/.git ]; then
      echo -e "${BLUE}Updating PowerUpSQL.${NC}"
      cd /opt/PowerUpSQL/ ; git pull
@@ -155,19 +141,7 @@ else
      echo
 fi
 
-if [ -d /opt/prowl/.git ]; then
-     echo -e "${BLUE}Updating Prowl.${NC}"
-     cd /opt/prowl/ ; git pull
-     echo
-else
-     echo -e "${YELLOW}Installing Prowl.${NC}"
-     git clone https://github.com/Pickfordmatt/Prowl /opt/prowl
-     chmod 755 /opt/prowl/prowl.py
-     apt-get install python-pip python-lxml
-     pip install dnspython Beautifulsoup4 Gitpython
-     echo
-fi
-
+#PS>Attack
 if [ -d /opt/PS-Attack/.git ]; then
      echo -e "${BLUE}Updating PS>Attack.${NC}"
      cd /opt/PS-Attack/ ; git pull
@@ -178,6 +152,7 @@ else
      echo
 fi
 
+#RAWR
 if [ -d /opt/rawr/.git ]; then
      echo -e "${BLUE}Updating RAWR.${NC}"
      cd /opt/rawr/ ; git pull
@@ -188,6 +163,7 @@ else
      /opt/rawr/install.sh y
 fi
 
+#Unicorn
 if [ -d /opt/unicorn/.git ]; then
      echo -e "${BLUE}Updating unicorn.${NC}"
      cd /opt/unicorn/ ; git pull
@@ -198,6 +174,7 @@ else
      echo
 fi
 
+#Veil
 if [ -d /opt/Veil/.git ]; then
      echo -e "${BLUE}Updating Veil.${NC}"
      cd /opt/Veil/ ; git pull
@@ -208,18 +185,21 @@ else
      echo
 fi
 
+#xdotool
 if [ ! -f /usr/bin/xdotool ]; then
      echo -e "${YELLOW}Installing xdotool.${NC}"
      apt-get install -y xdotool
      echo
 fi
 
+#xlsx2csv
 if [ ! -f /usr/bin/xlsx2csv ]; then
      echo -e "${YELLOW}Installing xlsx2csv.${NC}"
      apt-get install -y xlsx2csv
      echo
 fi
 
+#xml_grep
 if [ ! -f /usr/bin/xml_grep ]; then
      echo -e "${YELLOW}Installing xml_grep.${NC}"
      apt-get install -y xml-twig-tools
