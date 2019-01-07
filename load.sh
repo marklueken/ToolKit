@@ -170,7 +170,7 @@ if [ -d /opt/rawr/.git ]; then
 else
      echo -e "${YELLOW}Installing RAWR.${NC}"
      git clone https://bitbucket.org/al14s/rawr.git /opt/rawr
-     /opt/rawr/install.sh y
+     /opt/rawr/install.sh -y
 fi
 
 #Unicorn
