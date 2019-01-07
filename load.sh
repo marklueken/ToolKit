@@ -32,13 +32,13 @@ else
     echo
 fi
 
-#Sandbox NMAP Framework
+#Sandmap NMAP Framework
 if [ -d /opt/sandbox ]; then
-    echo -e "${BLUE}Updating Sandbox NMAP framework.${NC}"
-#    cd /opt/sandbox/ ' /opt/sandbox
+    echo -e "${BLUE}Updating Sandmap NMAP framework.${NC}"
+#    cd /opt/sandmap/ ' /opt/sandmap
 else 
-    echo -e "${YELLOW}Installing Sandbox NMAP Framework.${NC}"
-    git clone --recursive https://github.com/trimstray/sandmap  /opt/sandbox/;  chmod +x /opt/sandbox/setup.sh; ./opt/sandbox/setup.sh install;
+    echo -e "${YELLOW}Installing Sandmap NMAP Framework.${NC}"
+    git clone --recursive https://github.com/trimstray/sandmap  /opt/sandmap/;  chmod +x /opt/sandmap/setup.sh; ./opt/sandmap/setup.sh install;
     echo
 fi
 
