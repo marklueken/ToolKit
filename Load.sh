@@ -32,6 +32,16 @@ else
     echo
 fi
 
+#Sandbox NMAP Framework
+if [ -d /opt/sandbox ]; then
+    echo -e "${BLUE}Updating Sandbox NMAP framework.${NC}"
+#    cd /opt/sandbox/ ' /opt/sandbox
+else 
+    echo -e "${YELLOW}Installing Sandbox NMAP Framework.${NC}"
+    git clone --recursive https://github.com/trimstray/sandmap  /opt/sandbox/;  chmod +x /opt/sandbox/setup.sh; ./opt/sandbox/setup.sh install;
+    echo
+fi
+
 #Bloodhound
 if [ -d /opt/BloodHound/.git ]; then
      echo -e "${BLUE}Updating BloodHound.${NC}"
